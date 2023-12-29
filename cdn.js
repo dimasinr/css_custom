@@ -7,11 +7,13 @@
     function scheduler(callback) {
       queueJob(callback);
     }
+
     function queueJob(job) {
       if (!queue.includes(job))
         queue.push(job);
       queueFlush();
     }
+    
     function dequeueJob(job) {
       let index = queue.indexOf(job);
       if (index !== -1 && index > lastFlushedIndex)
